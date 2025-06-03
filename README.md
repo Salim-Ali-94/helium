@@ -3,7 +3,7 @@ open source and plush electric filter gui design tool
 
 ## system design
 
-### user inputs
+### design inputs
 
 1. domain
 

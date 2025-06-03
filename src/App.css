@@ -1,3 +1,88 @@
+
+
+/** {
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}*/
+
+:root {
+
+  --granite: #141414;
+  --lunar: #242424;
+  --green: #439b05;
+  --purple: #439b05;
+  font-family: "Jetbrains";
+  /*font-family: "Fira";*/
+  /*font-feature-settings: "ss01";*/
+}
+
+@font-face {
+
+  font-family: "Jetbrains";
+  src: url("./assets/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+
+}
+
+@font-face {
+
+  font-family: "Jetbrains-Medium";
+  src: url("./assets/fonts/JetbrainsMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+
+}
+
+@font-face {
+
+  font-family: "Jetbrains-SemiBold";
+  src: url("./assets/fonts/JetbrainsMono-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+
+}
+
+@font-face {
+
+  font-family: "Jetbrains-Bold";
+  src: url("./assets/fonts/JetbrainsMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+
+}
+
+@font-face {
+
+  font-family: "Fira";
+  src: url("./assets/fonts/FiraCode-Regular.ttf") format("truetype");
+  font-weight: 400;
+
+}
+
+@font-face {
+
+  font-family: "Fira-Medium";
+  src: url("./assets/fonts/FiraCode-Medium.ttf") format("truetype");
+  font-weight: 500;
+
+}
+
+@font-face {
+
+  font-family: "Fira-SemiBold";
+  src: url("./assets/fonts/FiraCode-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+
+}
+
+@font-face {
+
+  font-family: "Fira-Bold";
+  src: url("./assets/fonts/FiraCode-Bold.ttf") format("truetype");
+  font-weight: 700;
+
+}
+
 .logo.vite:hover {
   filter: drop-shadow(0 0 2em #747bff);
 }
@@ -6,7 +91,7 @@
   filter: drop-shadow(0 0 2em #2f5d90);
 }
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  /*font-family: Inter, Avenir, Helvetica, Arial, sans-serif;*/
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
