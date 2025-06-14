@@ -72,3 +72,27 @@ open source and plush electric filter gui design tool
 7. circuit diagram
 
 8. topology block diagram
+
+9. response optimization
+
+10. evaluate filter performance on test signals
+
+11. practical component selection
+
+12. universal circuit diagram export (netlist)
+
+### useful applications
+
+1. analogue -> passive + active
+
+	- rf
+	- emi
+	- power supplies
+	- power electronics
+	- buck/boost converters
+
+2. digital -> iir + fir
+
+	- ecg/eeg
+	- communication systems
+	- audio processing
