@@ -1,0 +1,76 @@
+
+.container {
+
+	position: relative;
+	width: 300px;
+	height: 40px;
+	/*background-color: plum;*/
+	background-color: #fff;
+	border-radius: 8px;
+	cursor: text;
+	margin-top: 0;
+	transition: height 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+
+}
+
+.container.focused {
+
+/*	height: 86px;
+	margin-top: -60px;*/
+	height: 80px;
+	margin-top: -54px;
+}
+
+.header {
+
+	top: 50%;
+	transform: translateY(-50%);
+	left: 12px;
+	position: absolute;
+	pointer-events: none;
+	font-family: "Jetbrains";
+	font-size: 1rem;
+	color: lightgrey;
+	transition: top 0.3s ease-in-out, transform 0.3s ease-in-out,
+				color 0.3s ease-in-out, font-family 0.3s ease-in-out;
+
+}
+
+.container.focused .header {
+
+	/*top: 5px;*/
+	/*top: 12px;*/
+	top: 8px;
+	transform: translateY(0);
+	/*color: #000;*/
+	color: var(--granite);
+	font-family: "Jetbrains-Medium";
+
+}
+
+#textBox {
+
+	border: none;
+	outline: none;
+	border-radius: 8px;
+	position: absolute;
+	padding: 0 12px;
+	max-height: 0;
+	width: calc(100% - 10px);
+	bottom: 5px;
+	left: 5px;
+	font-family: "Jetbrains";
+	font-size: 1rem;
+	color: #fff;
+	/*background-color: var(--lunar);*/
+	background-color: plum;
+	transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+
+}
+
+.container.focused #textBox {
+
+	max-height: 38px;
+	padding: 8px 12px;
+
+}
