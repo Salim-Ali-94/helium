@@ -1,0 +1,121 @@
+
+.container {
+
+	width: 100%;
+	background-color: #fff;
+	border-radius: 8px;
+	position: relative;
+	cursor: text;
+	/*height: 36px;*/
+	height: 32px;
+	margin-top: 0;
+
+	transition: height 0.3s ease-in-out,
+				margin-top 0.3s ease-in-out;
+
+	min-width: 200px;
+	max-width: 300px;
+
+}
+
+.container.focused {
+
+	height: 76px;
+	margin-top: -50px;
+
+}
+
+.header {
+
+	position: absolute;
+	top: 50%;
+	left: 12px;
+	font-family: "Jetbrains";
+	/*font-size: 0.875rem;*/
+	font-size: 0.75rem;
+	color: lightslategrey;
+	transform: translateY(-50%);
+	pointer-events: none;
+
+	transition: top 0.3s ease-in-out,
+				transform 0.3s ease-in-out,
+				font-family 0.3s ease-in-out,
+				color 0.3s ease-in-out;
+
+}
+
+.container.focused .header {
+
+	top: 12px;
+	transform: translateY(0);
+	font-family: "Jetbrains-Medium";
+	color: var(--lunar);
+
+}
+
+.box {
+
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+	height: 0;
+	width: calc(100% - 10px);
+	padding: 0 12px;
+	border: none;
+	outline: none;
+	border-radius: 8px;
+	/*background-color: var(--lunar);*/
+	/*background-color: var(--charm);*/
+	/*background-color: var(--sodapop);*/
+	/*background-color: var(--forest);*/
+	/*background-color: #5a2707;*/
+
+	/*background-color: olive;*/
+	background-color: olivedrab;
+
+	/*background-color: #372C2E;*/
+	/*background-color: #371400;*/
+
+	/*maroon*/
+	/*background-color: #550000;*/ 
+	/*background-color: #4B1523;*/
+	/*background-color: #57170D;*/
+	/*background-color: #412422;*/
+
+	/*background-color: #640000;*/
+	/*background-color: #630000;*/
+
+	/*background-color: #573826;*/
+	padding: 0 12px;
+	font-family: "Jetbrains";
+	/*font-size: 0.875rem;*/
+	font-size: 0.75rem;
+	color: #fff;
+
+	transition: height 0.3s ease-in-out,
+				padding 0.3s ease-in-out;
+
+}
+
+.container.focused .box {
+
+	/*height: 36px;*/
+	height: 32px;
+	padding: 0 12px;
+
+}
+
+/* remove up/down arrow buttons for number input */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+
+	-webkit-appearance: none;
+
+}
+
+/* firefox  */
+input[type="number"] {
+
+	-moz-appearance: textfield;
+
+}

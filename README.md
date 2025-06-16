@@ -94,5 +94,6 @@ open source and plush electric filter gui design tool
 2. digital -> iir + fir
 
 	- ecg/eeg
+	- bci
 	- communication systems
 	- audio processing

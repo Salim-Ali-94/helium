@@ -1,4 +1,4 @@
-import Feed from "./screens/Feed";
+import FilterDesignSpecs from "./screens/FilterDesignSpecs";
 import "./App.css";
 
 
@@ -6,7 +6,7 @@ export default function App() {
 
 	return (
 
-		<Feed />
+		<FilterDesignSpecs />
 
 	);
 
