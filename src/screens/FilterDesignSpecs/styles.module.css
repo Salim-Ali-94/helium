@@ -17,7 +17,7 @@
 	height: 96%;
 	border: 2px solid rgba(200, 50, 180, 0.8);
 	display: flex;
-	justify-content: space-between;
+	/*justify-content: space-between;*/
 
 }
 
@@ -31,6 +31,7 @@
 .right {
 
 	width: 48%;
+	margin-left: 16px;
 
 }
 
@@ -83,6 +84,7 @@
 	justify-content: space-between;
 	padding-bottom: 16px;
 	padding-right: 16px;
+	/*padding-right: 52px;*/
 
 }
 

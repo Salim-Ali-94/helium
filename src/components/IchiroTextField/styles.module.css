@@ -67,11 +67,7 @@
 	border-radius: 8px;
 	/*background-color: olivedrab;*/
 	/*background-color: var(--lunar);*/
-	/*background-color: #343434;*/
-	background-color: #333;
-	/*background-color: var(--forest);*/
-	/*background-color: var(--charm);*/
-	/*background-color: var(--sodapop);*/
+	background-color: var(--metal);
 	padding: 0 12px;
 	font-family: "Jetbrains";
 	font-size: 0.75rem;

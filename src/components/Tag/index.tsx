@@ -11,7 +11,7 @@ export default function Tag(props) {
 		<div class={styles.box}
 			 style={{ 
 
-				border: `${(props.active() === props.label.toLowerCase()) ? "2px" : "2px"} solid rgba(${props.highlight.r}, ${props.highlight.g}, ${props.highlight.b}, ${(props.active() === props.label.toLowerCase()) ? "1" : "0.4"})`,
+				border: `2px solid rgba(${props.highlight.r}, ${props.highlight.g}, ${props.highlight.b}, ${(props.active() === props.label.toLowerCase()) ? "1" : "0.4"})`,
 				"background-color": `rgba(${props.highlight.r}, ${props.highlight.g}, ${props.highlight.b}, ${(props.active() === props.label.toLowerCase()) ? "0.4" : "0.2"})`,
 				filter: hover() ? `drop-shadow(0 0 1.5rem rgba(${props.highlight.r}, ${props.highlight.g}, ${props.highlight.b}, 0.5))` : ""
 
