@@ -1,5 +1,8 @@
 import { specsHook } from "./hookSpecs";
 import IchiroTextField from "../../components/IchiroTextField";
+import Tag from "../../components/Tag";
+import CheckBox from "../../components/CheckBox";
+import Button from "../../components/Button";
 import styles from "./styles.module.css";
 
 
@@ -35,6 +38,60 @@ export default function FilterDesignSpecs() {
 			<div class={styles.content}>
 
 				<div class={styles.left}>
+
+					<div class={styles.topSection}>
+
+						<div class={styles.domainSelection}>
+						
+							<Tag label="Digital"
+								 highlight={{ r: 255, g: 109, b: 255 }}
+								 // highlight={{ r: 255, g: 105, b: 180 }}
+								 active={domain}
+								 setActive={setDomain} />
+							
+							<div class={styles.gap} />
+							
+							<Tag label="Analogue"
+								 // highlight={{ r: 34, g: 218, b: 244 }}
+								 highlight={{ r: 104, g: 233, b: 230 }}
+								 active={domain}
+								 setActive={setDomain} />
+
+						</div>
+
+						<div class={styles.column}>
+
+							<CheckBox label={(domain() === "digital") ? "IIR" : "Active"}
+
+									  active={(((domain() === "digital") &&
+									  		    (configuration() === "iir")) ||
+									  		    ((domain() === "analogue") &&
+									  		    (configuration() === "active"))) ? true : false}
+
+									  assignActive={event => (((domain() === "digital") &&
+											  				   (configuration() !== "iir")) ||
+											  				   ((domain() === "analogue") &&
+											  				   (configuration() !== "active"))) ? setConfiguration((domain() === "digital") ? "iir" : "active") :
+																								  event.preventDefault()} />
+
+							<div class={styles.wedge} />
+
+							<CheckBox label={(domain() === "digital") ? "FIR" : "Passive"}
+
+									  active={(((domain() === "digital") &&
+									  			(configuration() === "fir")) ||
+									  		    ((domain() === "analogue") &&
+									  		   	(configuration() === "passive"))) ? true : false}
+
+									  assignActive={event => (((domain() === "digital") &&
+									  						   (configuration() !== "fir")) ||
+									  						   ((domain() === "analogue") &&
+									  						   (configuration() !== "passive"))) ? setConfiguration((domain() === "digital") ? "fir" : "passive") :
+																								   event.preventDefault()} />
+
+						</div>
+
+					</div>
 
 					<div class={styles.row}>
 		 
@@ -127,29 +184,27 @@ export default function FilterDesignSpecs() {
 										 setText={setTransitionWidth}
 										 mode="decimal" />
 
+						<div class={styles.gap} />
+
+						<IchiroTextField label="Cutoff frequency (Hz)"
+										 text={cutoffFrequency}
+										 setText={setCutoffFrequency}
+										 mode="decimal" />
+
 					</div>
 
 				</div>
 
 				<div class={styles.right}>
 
-					{/*<div class={styles.row}>
-		 
-						<IchiroTextField label="Cutoff frequency (Hz)"
-										 text={cutoffFrequency}
-										 setText={setCutoffFrequency}
-										 mode="decimal" />
+					<div class={styles.sectionTop}>
 
-					</div>*/}
+						<Button label="Process design"
+								active={(order() || (samplingFrequency() && ripplePassband() && attenuationStopband())) ? true : false} />
+
+					</div>
 
 					<div class={styles.row}>
-		 
-						<IchiroTextField label="Sampling frequency (Hz)"
-										 text={samplingFrequency}
-										 setText={setSamplingFrequency}
-										 mode="decimal" />
-
-						<div class={styles.gap} />
 
 						<IchiroTextField label="Order"
 										 text={order}
@@ -157,6 +212,15 @@ export default function FilterDesignSpecs() {
 										 mode="integer" />
 
 					</div>
+
+					{ (domain() === "digital") && <div class={styles.row}>
+		 
+														<IchiroTextField label="Sampling frequency (Hz)"
+																	   	 text={samplingFrequency}
+																	   	 setText={setSamplingFrequency}
+																	   	 mode="decimal" />
+
+													</div> }
 
 				</div>
 

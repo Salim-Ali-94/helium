@@ -20,7 +20,8 @@
 
 .container.focused {
 
-	height: 76px;
+	/*height: 76px;*/
+	height: 68px;
 	margin-top: -50px;
 
 }
@@ -31,7 +32,6 @@
 	top: 50%;
 	left: 12px;
 	font-family: "Jetbrains";
-	/*font-size: 0.875rem;*/
 	font-size: 0.75rem;
 	color: lightslategrey;
 	transform: translateY(-50%);
@@ -46,54 +46,39 @@
 
 .container.focused .header {
 
-	top: 12px;
+	/*top: 12px;*/
+	top: 8px;
 	transform: translateY(0);
 	font-family: "Jetbrains-Medium";
-	color: var(--lunar);
+	color: var(--granite);
 
 }
 
 .box {
 
 	position: absolute;
-	bottom: 5px;
-	left: 5px;
 	height: 0;
-	width: calc(100% - 10px);
+	bottom: 2px;
+	left: 2px;
+	width: calc(100% - 4px);
 	padding: 0 12px;
 	border: none;
 	outline: none;
 	border-radius: 8px;
+	/*background-color: olivedrab;*/
 	/*background-color: var(--lunar);*/
+	/*background-color: #343434;*/
+	background-color: #333;
+	/*background-color: var(--forest);*/
 	/*background-color: var(--charm);*/
 	/*background-color: var(--sodapop);*/
-	/*background-color: var(--forest);*/
-	/*background-color: #5a2707;*/
-
-	/*background-color: olive;*/
-	background-color: olivedrab;
-
-	/*background-color: #372C2E;*/
-	/*background-color: #371400;*/
-
-	/*maroon*/
-	/*background-color: #550000;*/ 
-	/*background-color: #4B1523;*/
-	/*background-color: #57170D;*/
-	/*background-color: #412422;*/
-
-	/*background-color: #640000;*/
-	/*background-color: #630000;*/
-
-	/*background-color: #573826;*/
 	padding: 0 12px;
 	font-family: "Jetbrains";
-	/*font-size: 0.875rem;*/
 	font-size: 0.75rem;
 	color: #fff;
 
-	transition: height 0.3s ease-in-out,
-				padding 0.3s ease-in-out;
+	transition: height 0.3s ease-in-out;
+
 
 }
 
@@ -101,7 +86,6 @@
 
 	/*height: 36px;*/
 	height: 32px;
-	padding: 0 12px;
 
 }
 
