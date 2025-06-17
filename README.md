@@ -81,7 +81,7 @@ open source and plush electric filter gui design tool
 
 12. universal circuit diagram export (netlist)
 
-### useful applications
+### practical applications
 
 1. analogue -> passive + active
 
@@ -97,3 +97,8 @@ open source and plush electric filter gui design tool
 	- bci
 	- communication systems
 	- audio processing
+
+## progress
+
+### 1. initial design specs
+
