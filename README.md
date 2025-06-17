@@ -102,3 +102,11 @@ open source and plush electric filter gui design tool
 
 ### 1. initial design specs
 
+#### digital / inactive
+
+![Screenshot 2025-06-16 163941](https://github.com/user-attachments/assets/1d40acfc-ca1c-46b9-89d1-783efe165ce9)
+
+#### analogue / active
+
+![Screenshot 2025-06-16 164005](https://github.com/user-attachments/assets/55c6a2f9-5777-4888-bd0d-fedd371f695a)
+
