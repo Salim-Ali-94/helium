@@ -4,8 +4,8 @@ import IchiroTextField from "../../components/IchiroTextField";
 import Tag from "../../components/Tag";
 import CheckBox from "../../components/CheckBox";
 import Button from "../../components/Button";
-import styles from "./styles.module.css";
 import ProgressStepper from "../../components/ProgressStepper";
+import styles from "./styles.module.css";
 
 
 export default function FilterDesignSpecs() {

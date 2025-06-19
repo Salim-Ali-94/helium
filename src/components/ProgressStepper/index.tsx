@@ -14,7 +14,7 @@ export default function ProgressStepper(props) {
 
 				{ (item, _) => (item%2 === 0) ? <div class={styles.dot}
 													 
-													 style={{ "border": `${ (item === (props.currentStep() - 1)*2) ? "2px" : "0" } solid var(--sodapop)`,
+													 style={{ "border": `2px solid ${ (item <= (props.currentStep() - 1)*2) ? "var(--sodapop)" : "var(--metal)"}`,
 
 													 		  "background-color": (item === (props.currentStep() - 1)*2) ? "var(--metal)" :
 													 							  (item < (props.currentStep() - 1)*2) ? "var(--sodapop)" :
