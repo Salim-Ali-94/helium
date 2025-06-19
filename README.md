@@ -110,3 +110,7 @@ open source and plush electric filter gui design tool
 
 ![Screenshot 2025-06-16 164005](https://github.com/user-attachments/assets/55c6a2f9-5777-4888-bd0d-fedd371f695a)
 
+### progress stepper
+
+![Screenshot 2025-06-19 193745](https://github.com/user-attachments/assets/c4a53d0b-aeb6-4c70-a14f-3a97fc8ca2ec)
+
