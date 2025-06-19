@@ -1,12 +1,16 @@
+import { createSignal } from "solid-js";
 import { specsHook } from "./hookSpecs";
 import IchiroTextField from "../../components/IchiroTextField";
 import Tag from "../../components/Tag";
 import CheckBox from "../../components/CheckBox";
 import Button from "../../components/Button";
 import styles from "./styles.module.css";
+import ProgressStepper from "../../components/ProgressStepper";
 
 
 export default function FilterDesignSpecs() {
+
+	const [currentStep, setCurrentStep] = createSignal(1);
 
 	const { domain, setDomain,
 			configuration, setConfiguration,
@@ -32,7 +36,7 @@ export default function FilterDesignSpecs() {
 		<div class={styles.screen}>
 
 			<div class={styles.headerSection}>
-				<p class={styles.header}>Design specifications</p>
+				<ProgressStepper steps={4} currentStep={currentStep} setCurrentStep={setCurrentStep} />
 			</div>
 
 			<div class={styles.content}>

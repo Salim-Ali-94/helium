@@ -12,9 +12,9 @@ open source and plush electric filter gui design tool
 
 2. filter specifications
 
-	- ripple (passband, stopband) [dB]
-	- attenuation (passband, stopband) [dB]
-	- cutoff frequencies (pass, stop) [hz]
+	- ripple (passband, stopband) [db]
+	- attenuation (passband, stopband) [db]
+	- cutoff frequency [hz]
 	- edge frequencies (upper passband, lower passband, upper stopband, lower stopband) [hz]
 	- bandwidth [hz]
 	- center frequency [hz]
