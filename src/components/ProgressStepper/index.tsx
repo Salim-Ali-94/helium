@@ -15,19 +15,27 @@ export default function ProgressStepper(props: IProgressStepper) {
 
 				{ (_, index) => (index()%2 === 0) ? <div class={styles.dot}
 													 
-													 style={{ "border": `2px solid ${ (index() <= (props.currentStep() - 1)*2) ? "var(--sodapop)" :
-																															  "var(--metal)"}`,
+													 style={{
 
-													 		  "background-color": (index() === (props.currentStep() - 1)*2) ? "var(--metal)" :
-													 							  (index() < (props.currentStep() - 1)*2) ? "var(--sodapop)" :
-													 							  										 "var(--metal)" }}
+													 	"border": `2px solid ${ (index() <= (props.currentStep() - 1)*2) ? "var(--sodapop)" :
+																														   "var(--metal)"}`,
+
+													 	"background-color": (index() === (props.currentStep() - 1)*2) ? "var(--metal)" :
+													 						(index() < (props.currentStep() - 1)*2) ? "var(--sodapop)" :
+													 							  										 "var(--metal)"
+
+													 }}
 
 													 onClick={() => props.setCurrentStep((index() / 2) + 1) } /> :
 
 												<div class={styles.line}>
 
 													<div class={styles.bar}
-														 style={{ "width": (index() < (props.currentStep() - 1)*2) ? "100%" : "0" }} />
+														 style={{
+
+														 	"width": (index() < (props.currentStep() - 1)*2) ? "100%" : "0"
+
+														 }} />
 
 												</div> }
 

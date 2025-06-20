@@ -8,7 +8,12 @@ export default function Button(props: IButton) {
 	return (
 
 		<div class={styles.container}
-			 style={{ "background-color": props.active ? "var(--sodapop)" : "var(--metal)" }}>
+			 style={{
+
+			 	"background-color": props.active ? "var(--sodapop)" :
+			 									   "var(--metal)"
+
+			 }}>
 
 			<p class={styles.text}>{props.label}</p>
 			<img src={chevron} class={styles.icon} />
