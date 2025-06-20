@@ -1,8 +1,9 @@
 import { createSignal } from "solid-js";
+import { ITag } from "./types";
 import styles from "./styles.module.css";
 
 
-export default function Tag(props) {
+export default function Tag(props: ITag) {
 
 	const [hover, setHover] = createSignal(false);
 

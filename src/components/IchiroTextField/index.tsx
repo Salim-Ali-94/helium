@@ -1,19 +1,20 @@
-import { createUniqueId, createEffect } from "solid-js";
-import styles from "./styles.module.css";
+import { createUniqueId } from "solid-js";
+import { IIchiroTextField } from "./types";
 import { interceptInput, parseText } from "./utils";
+import styles from "./styles.module.css";
 
 
-export default function IchiroTextField(props) {
+export default function IchiroTextField(props: IIchiroTextField) {
 
 	const id = createUniqueId();
-	let boxRef;
+	let boxRef!: HTMLInputElement;
 
 	return (
 
-		<div class={`${styles.container} ${(!props?.setFocused || props?.focused()) ? styles.focused : ""}`}
+		<div class={`${styles.container} ${(!props?.setFocused || (props?.focused && props?.focused())) ? styles.focused : ""}`}
 			 onClick={() => props?.setFocused && boxRef?.focus()}>
 
-			<label htmlFor={id}
+			<label for={id}
 				   class={styles.header}>
 
 				   {props?.label}
@@ -25,7 +26,7 @@ export default function IchiroTextField(props) {
 				   type={(props?.mode?.toLowerCase() === "integer") ? "number" : "text"}
 				   inputmode="decimal"
 				   min="0"
-				   max={(props?.mode?.toLowerCase() === "integer") && "65535"}
+				   max={(props?.mode?.toLowerCase() === "integer") ? "65535" : undefined}
 				   step={(props?.mode?.toLowerCase() === "integer") ? "1" : "any"}
 				   class={styles.box}
 				   value={props?.text()}

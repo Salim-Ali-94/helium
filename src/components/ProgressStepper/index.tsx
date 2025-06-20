@@ -1,31 +1,33 @@
 import { For } from "solid-js";
+import { IProgressStepper } from "./types";
 import styles from "./styles.module.css";
 
 
-export default function ProgressStepper(props) {
+export default function ProgressStepper(props: IProgressStepper) {
 
-	const array = Array(props.steps + props.steps - 1).fill().map((_, index) => index);
+	const array = Array(props.totalSteps + props.totalSteps - 1).fill(null).map((_, index) => index);
 
 	return (
 
 		<div class={styles.container}>
 
-			<For each={ array }>
+			<For each={array}>
 
-				{ (item, _) => (item%2 === 0) ? <div class={styles.dot}
+				{ (_, index) => (index()%2 === 0) ? <div class={styles.dot}
 													 
-													 style={{ "border": `2px solid ${ (item <= (props.currentStep() - 1)*2) ? "var(--sodapop)" : "var(--metal)"}`,
+													 style={{ "border": `2px solid ${ (index() <= (props.currentStep() - 1)*2) ? "var(--sodapop)" :
+																															  "var(--metal)"}`,
 
-													 		  "background-color": (item === (props.currentStep() - 1)*2) ? "var(--metal)" :
-													 							  (item < (props.currentStep() - 1)*2) ? "var(--sodapop)" :
-													 							  "var(--metal)" }}
+													 		  "background-color": (index() === (props.currentStep() - 1)*2) ? "var(--metal)" :
+													 							  (index() < (props.currentStep() - 1)*2) ? "var(--sodapop)" :
+													 							  										 "var(--metal)" }}
 
-													 onClick={() => props.setCurrentStep((item / 2) + 1) } /> :
+													 onClick={() => props.setCurrentStep((index() / 2) + 1) } /> :
 
 												<div class={styles.line}>
 
 													<div class={styles.bar}
-														 style={{ "width": (item < (props.currentStep() - 1)*2) ? "100%" : "0" }} />
+														 style={{ "width": (index() < (props.currentStep() - 1)*2) ? "100%" : "0" }} />
 
 												</div> }
 

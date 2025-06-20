@@ -1,8 +1,9 @@
 import styles from "./styles.module.css";
+import { ICheckBox } from "./types";
 import tick from "../../assets/icons/tick.png";
 
 
-export default function CheckBox(props) {
+export default function CheckBox(props: ICheckBox) {
 
 	return (
 

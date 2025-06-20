@@ -1,8 +1,9 @@
 import chevron from "../../assets/icons/chevron.png";
+import { IButton } from "./types";
 import styles from "./styles.module.css";
 
 
-export default function Button(props) {
+export default function Button(props: IButton) {
 
 	return (
 

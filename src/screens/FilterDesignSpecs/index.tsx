@@ -14,8 +14,8 @@ export default function FilterDesignSpecs() {
 
 	const { domain, setDomain,
 			configuration, setConfiguration,
-			response, setResponse,
-			approximation, setApproximation,
+			// response, setResponse,
+			// approximation, setApproximation,
 			ripplePassband, setRipplePassband,
 			rippleStopband, setRippleStopband,
 			attenuationPassband, setAttenuationPassband,
@@ -36,7 +36,11 @@ export default function FilterDesignSpecs() {
 		<div class={styles.screen}>
 
 			<div class={styles.headerSection}>
-				<ProgressStepper steps={4} currentStep={currentStep} setCurrentStep={setCurrentStep} />
+
+				<ProgressStepper totalSteps={4}
+								 currentStep={currentStep}
+								 setCurrentStep={setCurrentStep} />
+
 			</div>
 
 			<div class={styles.content}>
