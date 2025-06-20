@@ -32,8 +32,8 @@ open source and plush electric filter gui design tool
 4. approximation
 
 	- butterworth
-	- chebychev
-	- inverse chebychev
+	- chebyshev
+	- inverse chebyshev
 	- elliptic
 	- bessel
 
