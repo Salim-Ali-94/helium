@@ -3,7 +3,7 @@ open source and plush electric filter gui design tool
 
 ## system design
 
-### user inputs
+### design inputs
 
 1. domain
 
@@ -12,9 +12,9 @@ open source and plush electric filter gui design tool
 
 2. filter specifications
 
-	- ripple (passband, stopband) [dB]
-	- attenuation (passband, stopband) [dB]
-	- cutoff frequencies (pass, stop) [hz]
+	- ripple (passband, stopband) [db]
+	- attenuation (passband, stopband) [db]
+	- cutoff frequency [hz]
 	- edge frequencies (upper passband, lower passband, upper stopband, lower stopband) [hz]
 	- bandwidth [hz]
 	- center frequency [hz]
@@ -32,8 +32,8 @@ open source and plush electric filter gui design tool
 4. approximation
 
 	- butterworth
-	- chebychev
-	- inverse chebychev
+	- chebyshev
+	- inverse chebyshev
 	- elliptic
 	- bessel
 
@@ -72,3 +72,45 @@ open source and plush electric filter gui design tool
 7. circuit diagram
 
 8. topology block diagram
+
+9. response optimization
+
+10. evaluate filter performance on test signals
+
+11. practical component selection
+
+12. universal circuit diagram export (netlist)
+
+### practical applications
+
+1. analogue -> passive + active
+
+	- rf
+	- emi
+	- power supplies
+	- power electronics
+	- buck/boost converters
+
+2. digital -> iir + fir
+
+	- ecg/eeg
+	- bci
+	- communication systems
+	- audio processing
+
+## progress
+
+### 1. initial design specs
+
+#### digital / inactive
+
+![Screenshot 2025-06-16 163941](https://github.com/user-attachments/assets/1d40acfc-ca1c-46b9-89d1-783efe165ce9)
+
+#### analogue / active
+
+![Screenshot 2025-06-16 164005](https://github.com/user-attachments/assets/55c6a2f9-5777-4888-bd0d-fedd371f695a)
+
+### progress stepper
+
+![Screenshot 2025-06-19 193745](https://github.com/user-attachments/assets/c4a53d0b-aeb6-4c70-a14f-3a97fc8ca2ec)
+

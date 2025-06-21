@@ -1,0 +1,45 @@
+
+
+.container {
+
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+}
+
+.dot {
+
+	width: 14px;
+	height: 14px;
+	border-radius: 3px;
+	transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+
+}
+
+.dot:hover {
+
+	cursor: pointer;
+
+}
+
+.line {
+
+	flex: 1;
+	height: 2px;
+	border-radius: 2px;
+	margin: 0 7px;
+	background-color: var(--metal);
+
+}
+
+.bar {
+
+	background-color: var(--sodapop);
+	width: 0;
+	height: 2px;
+	border-radius: 2px;
+	transition: width 0.5s ease-in-out;
+
+}

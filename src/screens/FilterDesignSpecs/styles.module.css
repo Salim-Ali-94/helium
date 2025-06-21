@@ -1,0 +1,106 @@
+
+
+.screen {
+
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--granite);
+	padding: 16px;
+
+}
+
+.content {
+
+	padding: 16px;
+	border-radius: 20px;
+	width: 100%;
+	height: 94%;
+	border: 2px solid rgba(200, 50, 180, 0.8);
+	display: flex;
+	/*justify-content: space-between;*/
+
+}
+
+.left {
+
+	width: 48%;
+	border-right: 1px dashed #fff;
+
+}
+
+.right {
+
+	width: 48%;
+	margin-left: 16px;
+
+}
+
+.headerSection {
+
+	width: 100%;
+	display: flex;
+	/*justify-content: flex-end;*/
+	justify-content: center;
+	margin-top: 16px;
+	margin-bottom: 32px;
+
+}
+
+.header {
+
+	font-family: "Jetbrains-Medium";
+	font-size: 1.125rem;
+	color: #fff;
+
+}
+
+.row {
+
+	display: flex;
+	margin-top: 62px;
+
+}
+
+.gap {
+
+	width: 10px;	
+
+}
+
+.column {
+
+	flex-direction: column;
+	display: flex;
+
+}
+
+.domainSelection {
+
+	display: flex;
+
+}
+
+.topSection {
+
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 16px;
+	padding-right: 16px;
+	/*padding-right: 52px;*/
+
+}
+
+.sectionTop {
+
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	padding-bottom: 16px;
+
+}
+
+.wedge {
+
+	height: 10px;
+
+}
