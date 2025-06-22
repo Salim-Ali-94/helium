@@ -1,6 +1,7 @@
+use serde::Deserialize;
 
 
-#[derive(Debug)]
+#[derive(Debug, Deserialize)]
 pub struct Specs {
 
 	pub domain: Domain,
@@ -24,7 +25,7 @@ pub struct Specs {
 
 }
 
-#[derive(Debug)]
+#[derive(Debug, Deserialize)]
 pub enum Domain {
 
 	Digital,
@@ -32,7 +33,7 @@ pub enum Domain {
 
 }
 
-#[derive(Debug)]
+#[derive(Debug, Deserialize)]
 pub enum Configuration {
 
 	IIR,
@@ -42,7 +43,7 @@ pub enum Configuration {
 
 }
 
-#[derive(Debug)]
+#[derive(Debug, Deserialize)]
 pub enum Response {
 
 	LPF,
@@ -52,7 +53,7 @@ pub enum Response {
 
 }
 
-#[derive(Debug)]
+#[derive(Debug, Deserialize)]
 pub enum Approximation {
 
 	Butterworth,
