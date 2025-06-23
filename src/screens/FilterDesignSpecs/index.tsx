@@ -69,7 +69,7 @@ export default function FilterDesignSpecs() {
 
 						<div class={styles.column}>
 
-							<CheckBox label={configuration()[domain()]}
+							<CheckBox label={(domain() === "Digital") ? "IIR" : "Active"}
 
 									  active={((configuration()[domain()] === "IIR") ||
 									  		   (configuration()[domain()] === "Active")) ? true : false}
@@ -80,7 +80,7 @@ export default function FilterDesignSpecs() {
 
 							<div class={styles.wedge} />
 
-							<CheckBox label={configuration()[domain()]}
+							<CheckBox label={(domain() === "Digital") ? "FIR" : "Passive"}
 
 									  active={((configuration()[domain()] === "FIR") ||
 									  		   (configuration()[domain()] === "Passive")) ? true : false}

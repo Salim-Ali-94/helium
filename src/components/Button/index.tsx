@@ -14,7 +14,7 @@ export default function Button(props: IButton) {
 			 									   "var(--metal)"
 
 			 }}
-			 onClick={props.submitAction}>
+			 onClick={props.active && props.submitAction}>
 
 			<p class={styles.text}>{props.label}</p>
 			<img src={chevron} class={styles.icon} />

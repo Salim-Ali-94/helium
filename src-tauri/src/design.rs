@@ -217,6 +217,22 @@ fn parse_specs(config: models::Specs) -> (String, String, String, String,
 
 	}
 
+	if (lower_passband_edge_frequency > upper_passband_edge_frequency) {
+
+		let remember = lower_passband_edge_frequency;
+		lower_passband_edge_frequency = upper_passband_edge_frequency;
+		upper_passband_edge_frequency = remember;
+
+	}
+
+	if (lower_stopband_edge_frequency > upper_stopband_edge_frequency) {
+
+		let remember = lower_stopband_edge_frequency;
+		lower_stopband_edge_frequency = upper_stopband_edge_frequency;
+		upper_stopband_edge_frequency = remember;
+
+	}
+
 	if ((response.as_str() == "bpf") &&
 		(transition_width > 0.0) &&
 		(lower_stopband_edge_frequency == 0.0)) {
@@ -245,19 +261,31 @@ fn parse_specs(config: models::Specs) -> (String, String, String, String,
 
 	}
 
-	if (lower_passband_edge_frequency > upper_passband_edge_frequency) {
+	if ((response.as_str() == "bpf") &&
+		(transition_width > 0.0) &&
+		(lower_passband_edge_frequency == 0.0)) {
 
-		let remember = lower_passband_edge_frequency;
-		lower_passband_edge_frequency = upper_passband_edge_frequency;
-		upper_passband_edge_frequency = remember;
+		lower_passband_edge_frequency = lower_stopband_edge_frequency + transition_width;
+
+	} else if ((response.as_str() == "bsf") &&
+			   (transition_width > 0.0) &&
+			   (lower_stopband_edge_frequency == 0.0)) {
+
+		lower_stopband_edge_frequency = lower_passband_edge_frequency + transition_width;
 
 	}
 
-	if (lower_stopband_edge_frequency > upper_stopband_edge_frequency) {
+	if ((response.as_str() == "bpf") &&
+		(transition_width > 0.0) &&
+		(upper_passband_edge_frequency == 0.0)) {
 
-		let remember = lower_stopband_edge_frequency;
-		lower_stopband_edge_frequency = upper_stopband_edge_frequency;
-		upper_stopband_edge_frequency = remember;
+		upper_passband_edge_frequency = upper_stopband_edge_frequency - transition_width;
+
+	} else if ((response.as_str() == "bsf") &&
+			   (transition_width > 0.0) &&
+			   (upper_stopband_edge_frequency == 0.0)) {
+
+		upper_stopband_edge_frequency = upper_passband_edge_frequency - transition_width;
 
 	}
 
