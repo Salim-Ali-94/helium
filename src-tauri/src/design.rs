@@ -163,7 +163,7 @@ fn parse_specs(config: models::Specs) -> (String, String, String, String,
 
 	}
 
-	if let Some(delta) = frequency_delta {
+	if let Some(delta) = transition_band {
 
 		transition_width = delta.abs();
 

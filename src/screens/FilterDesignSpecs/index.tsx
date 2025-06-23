@@ -69,33 +69,25 @@ export default function FilterDesignSpecs() {
 
 						<div class={styles.column}>
 
-							<CheckBox label={(domain() === "digital") ? "IIR" : "Active"}
+							<CheckBox label={configuration()[domain()]}
 
-									  active={(((domain() === "digital") &&
-									  		    (configuration() === "iir")) ||
-									  		    ((domain() === "analogue") &&
-									  		    (configuration() === "active"))) ? true : false}
+									  active={((configuration()[domain()] === "IIR") ||
+									  		   (configuration()[domain()] === "Active")) ? true : false}
 
-									  assignActive={event => (((domain() === "digital") &&
-											  				   (configuration() !== "iir")) ||
-											  				   ((domain() === "analogue") &&
-											  				   (configuration() !== "active"))) ? setConfiguration((domain() === "digital") ? "iir" : "active") :
-																								  event.preventDefault()} />
+									  assignActive={event => ((configuration()[domain()] !== "IIR") ||
+											  				  (configuration()[domain()] !== "Active")) ? setConfiguration(state => ({ ...state, [domain()]: (domain() === "Digital") ? "IIR" : "Active" })) :
+																								  		  event.preventDefault()} />
 
 							<div class={styles.wedge} />
 
-							<CheckBox label={(domain() === "digital") ? "FIR" : "Passive"}
+							<CheckBox label={configuration()[domain()]}
 
-									  active={(((domain() === "digital") &&
-									  			(configuration() === "fir")) ||
-									  		    ((domain() === "analogue") &&
-									  		   	(configuration() === "passive"))) ? true : false}
+									  active={((configuration()[domain()] === "FIR") ||
+									  		   (configuration()[domain()] === "Passive")) ? true : false}
 
-									  assignActive={event => (((domain() === "digital") &&
-									  						   (configuration() !== "fir")) ||
-									  						   ((domain() === "analogue") &&
-									  						   (configuration() !== "passive"))) ? setConfiguration((domain() === "digital") ? "fir" : "passive") :
-																								   event.preventDefault()} />
+									  assignActive={event => ((configuration()[domain()] !== "FIR") ||
+									  						  (configuration()[domain()] !== "Passive")) ? setConfiguration(state => ({ ...state, [domain()]: (domain() === "Digital") ? "FIR" : "Passive" })) :
+																								   		   event.preventDefault()} />
 
 						</div>
 

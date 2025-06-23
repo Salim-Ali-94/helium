@@ -4,10 +4,10 @@ import { createSignal } from "solid-js";
 
 export function specsHook() {
 
-	const [domain, setDomain] = createSignal("digital");
-	const [configuration, setConfiguration] = createSignal("iir");
-	const [response, setResponse] = createSignal("lpf");
-	const [approximation, setApproximation] = createSignal("butterworth");
+	const [domain, setDomain] = createSignal("Digital");
+	const [configuration, setConfiguration] = createSignal({ Digital: "IIR", Analogue: "Active" });
+	const [response, setResponse] = createSignal("LPF");
+	const [approximation, setApproximation] = createSignal("Butterworth");
 	const [ripplePassband, setRipplePassband] = createSignal("");
 	const [rippleStopband, setRippleStopband] = createSignal("");
 	const [attenuationPassband, setAttenuationPassband] = createSignal("");
@@ -25,28 +25,32 @@ export function specsHook() {
 
 	const computeDesign = async () => {
 
-		await invoke("design_filter", { config: {
+		await invoke("design_filter", { 
 
-			domain: "Digital",
-			configuration: "IIR",
-			response: "LPF",
-			approximation: "Butterworth",
-			passband_ripple: 0.1,
-			stopband_ripple: 0.0,
-			passband_attenuation: 0.0,
-			stopband_attenuation: 20.0,
-			cutoff_frequency: 5000.0,
-			center_frequency: 0.0,
-			bandwidth: 0.0,
-			lower_passband_edge_frequency: 0.0,
-			upper_passband_edge_frequency: 0.0,
-			lower_stopband_edge_frequency: 0.0,
-			upper_stopband_edge_frequency: 0.0,
-			transition_width: 0.0,
-			sampling_frequency: 20e3,
-			order: 0,
+			config: {
 
-		}});
+				domain: "Digital",
+				configuration: "IIR",
+				response: "BPF",
+				approximation: "Butterworth",
+				passband_ripple: 0.1,
+				stopband_ripple: 0.0,
+				passband_attenuation: 0.0,
+				stopband_attenuation: 20.0,
+				cutoff_frequency: 0.0,
+				center_frequency: 5000.0,
+				bandwidth: 1000.0,
+				lower_passband_edge_frequency: 0.0,
+				upper_passband_edge_frequency: 0.0,
+				lower_stopband_edge_frequency: 0.0,
+				upper_stopband_edge_frequency: 0.0,
+				transition_width: 0.0,
+				sampling_frequency: 20e3,
+				order: 0,
+
+			}
+
+		});
 
 	}
 
