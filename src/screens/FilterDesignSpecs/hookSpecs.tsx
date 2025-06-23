@@ -1,3 +1,4 @@
+import { invoke } from "@tauri-apps/api/core";
 import { createSignal } from "solid-js";
 
 
@@ -22,6 +23,33 @@ export function specsHook() {
 	const [samplingFrequency, setSamplingFrequency] = createSignal("");
 	const [order, setOrder] = createSignal("");
 
+	const computeDesign = async () => {
+
+		await invoke("design_filter", { config: {
+
+			domain: "Digital",
+			configuration: "IIR",
+			response: "LPF",
+			approximation: "Butterworth",
+			passband_ripple: 0.1,
+			stopband_ripple: 0.0,
+			passband_attenuation: 0.0,
+			stopband_attenuation: 20.0,
+			cutoff_frequency: 5000.0,
+			center_frequency: 0.0,
+			bandwidth: 0.0,
+			lower_passband_edge_frequency: 0.0,
+			upper_passband_edge_frequency: 0.0,
+			lower_stopband_edge_frequency: 0.0,
+			upper_stopband_edge_frequency: 0.0,
+			transition_width: 0.0,
+			sampling_frequency: 20e3,
+			order: 0,
+
+		}});
+
+	}
+
 	return { domain, setDomain,
 			 configuration, setConfiguration,
 			 response, setResponse,
@@ -39,6 +67,6 @@ export function specsHook() {
 			 upperStopbandEdgeFrequency, setUpperStopbandEdgeFrequency,
 			 transitionWidth, setTransitionWidth,
 			 samplingFrequency, setSamplingFrequency,
-			 order, setOrder };
+			 order, setOrder, computeDesign };
 
 }

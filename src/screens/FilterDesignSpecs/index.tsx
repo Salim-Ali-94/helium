@@ -29,7 +29,7 @@ export default function FilterDesignSpecs() {
 			upperStopbandEdgeFrequency, setUpperStopbandEdgeFrequency,
 			transitionWidth, setTransitionWidth,
 			samplingFrequency, setSamplingFrequency,
-			order, setOrder } = specsHook();
+			order, setOrder, computeDesign } = specsHook();
 
 	return (
 
@@ -208,7 +208,8 @@ export default function FilterDesignSpecs() {
 					<div class={styles.sectionTop}>
 
 						<Button label="Process design"
-								active={(order() || (samplingFrequency() && ripplePassband() && attenuationStopband())) ? true : false} />
+								active={(order() || (samplingFrequency() && ripplePassband() && attenuationStopband())) ? true : false}
+								submitAction={computeDesign} />
 
 					</div>
 

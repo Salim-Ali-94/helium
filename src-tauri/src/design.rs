@@ -6,7 +6,29 @@ use crate::models;
 #[tauri::command]
 pub fn design_filter(config: models::Specs) {
 
+	let (domain, configuration, response, approximation,
+		 passband_ripple, stopband_ripple, passband_attenuation, stopband_attenuation,
+		 cutoff_frequency, center_frequency, bandwidth, lower_passband_edge_frequency,
+		 upper_passband_edge_frequency, lower_stopband_edge_frequency, upper_stopband_edge_frequency,
+		 sampling_period, order) = parse_specs(config);
 
+	println!("domain = {domain}");
+	println!("configuration = {configuration}");
+	println!("response = {response}");
+	println!("approximation = {approximation}");
+	println!("passband_ripple = {passband_ripple}");
+	println!("stopband_ripple = {stopband_ripple}");
+	println!("passband_attenuation = {passband_attenuation}");
+	println!("stopband_attenuation = {stopband_attenuation}");
+	println!("cutoff_frequency = {cutoff_frequency}");
+	println!("center_frequency = {center_frequency}");
+	println!("bandwidth = {bandwidth}");
+	println!("lower_passband_edge_frequency = {lower_passband_edge_frequency}");
+	println!("upper_passband_edge_frequency = {upper_passband_edge_frequency}");
+	println!("lower_stopband_edge_frequency = {lower_stopband_edge_frequency}");
+	println!("upper_stopband_edge_frequency = {upper_stopband_edge_frequency}");
+	println!("sampling_period = {sampling_period}");
+	println!("order = {order}");
 
 }
 
@@ -163,16 +185,16 @@ fn parse_specs(config: models::Specs) -> (String, String, String, String,
 
 	}
 
-	if ((bandwidth > 0.0) &&
+	if ((response.as_str() == "bpf") &&
+		(bandwidth > 0.0) &&
 		(center_frequency > 0.0) &&
-		(response.as_str() == "bpf") &&
 		(lower_passband_edge_frequency == 0.0)) {
 
 		lower_passband_edge_frequency = center_frequency - bandwidth / 2.0;
 
-	} else if ((bandwidth > 0.0) &&
+	} else if ((response.as_str() == "bsf") &&
+			   (bandwidth > 0.0) &&
 			   (center_frequency > 0.0) &&
-			   (response.as_str() == "bsf") &&
 			   (lower_stopband_edge_frequency == 0.0)) {
 
 		lower_stopband_edge_frequency = center_frequency - bandwidth / 2.0;
@@ -195,14 +217,14 @@ fn parse_specs(config: models::Specs) -> (String, String, String, String,
 
 	}
 
-	if ((transition_width > 0.0) &&
-		(response.as_str() == "bpf") &&
+	if ((response.as_str() == "bpf") &&
+		(transition_width > 0.0) &&
 		(lower_stopband_edge_frequency == 0.0)) {
 
 		lower_stopband_edge_frequency = lower_passband_edge_frequency - transition_width;
 
-	} else if ((transition_width > 0.0) &&
-			   (response.as_str() == "bsf") &&
+	} else if ((response.as_str() == "bsf") &&
+			   (transition_width > 0.0) &&
 			   (lower_passband_edge_frequency == 0.0)) {
 
 		lower_passband_edge_frequency = lower_stopband_edge_frequency - transition_width;
@@ -270,7 +292,7 @@ fn parse_specs(config: models::Specs) -> (String, String, String, String,
 	}
 
 	return (domain, configuration, response, approximation,
-			passband_ripple, stopband_attenuation, passband_attenuation, stopband_ripple,
+			passband_ripple, stopband_ripple, passband_attenuation, stopband_attenuation,
 			cutoff_frequency, center_frequency, bandwidth, lower_passband_edge_frequency,
 			upper_passband_edge_frequency, lower_stopband_edge_frequency, upper_stopband_edge_frequency,
 			sampling_period, order);

@@ -13,7 +13,8 @@ export default function Button(props: IButton) {
 			 	"background-color": props.active ? "var(--sodapop)" :
 			 									   "var(--metal)"
 
-			 }}>
+			 }}
+			 onClick={props.submitAction}>
 
 			<p class={styles.text}>{props.label}</p>
 			<img src={chevron} class={styles.icon} />
