@@ -1,5 +1,5 @@
 # helium
-open source and plush electric filter gui design tool
+free, open source, lightweight, offline-first and plush electric filter gui design tool
 
 ## system design
 
@@ -114,3 +114,4 @@ open source and plush electric filter gui design tool
 
 ![Screenshot 2025-06-19 193745](https://github.com/user-attachments/assets/c4a53d0b-aeb6-4c70-a14f-3a97fc8ca2ec)
 
+<!-- panama -->

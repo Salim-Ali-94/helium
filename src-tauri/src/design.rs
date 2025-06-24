@@ -1,5 +1,6 @@
 #![allow(non_snake_case)]
 #![allow(unused_parens)]
+use crate::iir;
 use crate::models;
 
 
@@ -10,7 +11,7 @@ pub fn design_filter(config: models::Specs) {
 		 passband_ripple, stopband_ripple, passband_attenuation, stopband_attenuation,
 		 cutoff_frequency, center_frequency, bandwidth, lower_passband_edge_frequency,
 		 upper_passband_edge_frequency, lower_stopband_edge_frequency, upper_stopband_edge_frequency,
-		 sampling_period, order) = parse_specs(config);
+		 sampling_period, mut order) = parse_specs(config);
 
 	println!("domain = {domain}");
 	println!("configuration = {configuration}");
@@ -29,6 +30,41 @@ pub fn design_filter(config: models::Specs) {
 	println!("upper_stopband_edge_frequency = {upper_stopband_edge_frequency}");
 	println!("sampling_period = {sampling_period}");
 	println!("order = {order}");
+
+	if (order == 0) {
+
+		order = calculate_order(&domain, &configuration, &response, &approximation,
+								&passband_ripple, &stopband_ripple, &passband_attenuation, &stopband_attenuation,
+								&cutoff_frequency, &center_frequency, &bandwidth, &sampling_period,
+								&lower_passband_edge_frequency, &upper_passband_edge_frequency, &lower_stopband_edge_frequency, &upper_stopband_edge_frequency);
+
+		println!("{order}");
+
+	}
+
+}
+
+fn calculate_order(domain: &str, configuration: &str, response: &str, approximation: &str,
+				   passband_ripple: &f64, stopband_ripple: &f64, passband_attenuation: &f64, stopband_attenuation: &f64,
+				   cutoff_frequency: &f64, center_frequency: &f64, bandwidth: &f64, sampling_period: &f64,
+				   lower_passband_edge_frequency: &f64, upper_passband_edge_frequency: &f64, lower_stopband_edge_frequency: &f64, upper_stopband_edge_frequency: &f64) -> u16 {
+
+	let mut order = 0;
+
+	if ((domain == "digital") &&
+		(configuration == "iir")) {
+
+		if (approximation == "butterworth") {
+
+			order = iir::butterworth_order(&response, &passband_ripple, &stopband_ripple, &passband_attenuation, &stopband_attenuation,
+										   &cutoff_frequency, &center_frequency, &bandwidth, &sampling_period,
+										   &lower_passband_edge_frequency, &upper_passband_edge_frequency, &lower_stopband_edge_frequency, &upper_stopband_edge_frequency);
+
+		}
+
+	}
+
+	return order;
 
 }
 
@@ -286,6 +322,20 @@ fn parse_specs(config: models::Specs) -> (String, String, String, String,
 			   (upper_stopband_edge_frequency == 0.0)) {
 
 		upper_stopband_edge_frequency = upper_passband_edge_frequency - transition_width;
+
+	}
+
+	if ((response.as_str() == "lpf") &&
+	    (transition_width > 0.0) &&
+	    (upper_stopband_edge_frequency == 0.0)) {
+
+		upper_stopband_edge_frequency = cutoff_frequency + transition_width;
+
+	} else if ((response.as_str() == "hpf") &&
+			   (transition_width > 0.0) &&
+			   (lower_stopband_edge_frequency == 0.0)) {
+
+		lower_stopband_edge_frequency = cutoff_frequency - transition_width;
 
 	}
 
