@@ -1,4 +1,4 @@
-# helium
+# mercury
 free, open source, lightweight, offline-first and plush electric filter gui design tool
 
 ## system design
